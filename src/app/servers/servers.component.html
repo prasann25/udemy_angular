@@ -9,16 +9,29 @@
 <button class="btn-primary" [disabled]="!allowNewServer"
     (click)="onCreateServer()">Add Server</button>
 <!-- <p [innerText]="allowNewServer"></p> -->
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 <hr>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
 <app-successalert></app-successalert>
 <app-warningalert></app-warningalert>
 <hr>
+Assignment 2
 <label>UserName</label>
 <input type="text" class="form-control" [(ngModel)]="username">
-<button class="btn-primary" [disabled]="username.length === 0" (click)="onCreateUser()">Add User Name</button>
-<p>Last User added is {{usernameCreated}}</p>
+<p>User added is {{username}}</p>
+<button class="btn-primary" 
+    (click)="username=''">Reset User</button>
 <br>
 <br>
+<hr>
+Assignment 3
+<br>
+<button class="btn-primary" (click)="recordClickAndToggleParagraph()">DisplayDetails</button>
+<p *ngIf="displayParagraph">Secret Password = tuna</p>
+<p *ngFor="let cT of clickTimeStamp; let i=index">
+    Timestamp index {{i}} : {{clickTimeStamp[i]}}
+</p>
+<br>
+<br>
+<hr>

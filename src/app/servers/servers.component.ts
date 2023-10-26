@@ -13,8 +13,9 @@ export class ServersComponent {
   serverCreationStatus ="No server was created !" ;
   serverName = 'TestServer';
   userNameEmpty = true;
-  usernameCreated="";
   username="";
+  serverCreated=false;
+  servers = ['TestServer 1', 'TestServer 2'];
 
   constructor() {
     setTimeout(()=> {
@@ -23,15 +24,20 @@ export class ServersComponent {
   }
   
   onCreateServer(){
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     return this.serverCreationStatus = "Server was created !!!, Name is" + this.serverName;
-  }
-
-  onCreateUser() {
-    this.usernameCreated =this.username;
-    this.username="";
   }
 
   // onUpdateServerName(event: Event) {
   //   this.serverName = (<HTMLInputElement>event.target).value;
   // }
+
+  displayParagraph=false;
+  clickTimeStamp=[];
+
+  recordClickAndToggleParagraph() {
+    this.displayParagraph = ! this.displayParagraph;
+    this.clickTimeStamp.push(new Date())
+  }
 }
