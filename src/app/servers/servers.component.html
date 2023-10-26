@@ -16,3 +16,9 @@
 <app-successalert></app-successalert>
 <app-warningalert></app-warningalert>
 <hr>
+<label>UserName</label>
+<input type="text" class="form-control" [(ngModel)]="username">
+<button class="btn-primary" [disabled]="username.length === 0" (click)="onCreateUser()">Add User Name</button>
+<p>Last User added is {{usernameCreated}}</p>
+<br>
+<br>
