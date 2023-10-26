@@ -9,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent {
+  allowNewServer = false;
+  serverCreationStatus ="No server was created !" ;
+  serverName = 'TestServer';
 
+  constructor() {
+    setTimeout(()=> {
+      this.allowNewServer = true;
+    },2000)
+  }
+  
+  onCreateServer(){
+    return this.serverCreationStatus = "Server was created !!!, Name is" + this.serverName;
+  }
+
+  onUpdateServerName(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
 }
